@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TbAddressMapperAbc">
+  <select id="getEntityById" parameterType="int" resultType="pojo.TbAddress">
+SELECT
+  `id`,
+  `user_id`,
+  `province_id`,
+  `city_id`,
+  `town_id`,
+  `mobile`,
+  `address`,
+  `contact`,
+  `is_default`,
+  `notes`,
+  `create_date`,
+  `alias`
+FROM `pinyougoudb`.`tb_address`
+WHERE ID=59
+  </select>
+</mapper>
