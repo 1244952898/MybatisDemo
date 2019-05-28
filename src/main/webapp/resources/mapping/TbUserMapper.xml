@@ -72,6 +72,24 @@ WHERE id=#{id}
 FROM `pinyougoudb`.`tb_user`
 WHERE username LIKE '%SUN%'
 </select>
+  <select id="getUserByLikeName" parameterType="string" resultType="pojo.TbUser">
+  SELECT
+  `id`,
+  `username`,
+  `password`,
+  `phone`,
+  `email`,
+  `created`,
+  `updated`,
+  `source_type`,
+  `nick_name`,
+  `name`,
+  `status`,
+  `head_pic`,
+  `experience_value`
+FROM `pinyougoudb`.`tb_user`
+WHERE username LIKE '%${value}%'
+</select>
 
 
 

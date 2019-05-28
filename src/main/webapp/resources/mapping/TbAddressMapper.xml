@@ -16,6 +16,148 @@ SELECT
   `create_date`,
   `alias`
 FROM `pinyougoudb`.`tb_address`
-WHERE ID=59
+WHERE ID=#{id}
   </select>
+
+  <insert id="insertEntity1" parameterType="pojo.TbAddress" useGeneratedKeys="true" keyProperty="id">
+<!--<selectKey keyProperty="id" resultType="Long" order="AFTER" >
+    SELECT LAST_INSERT_ID()
+</selectKey>-->
+    INSERT INTO `pinyougoudb`.`tb_address`
+            (
+             `user_id`,
+             `province_id`,
+             `city_id`,
+             `town_id`,
+             `mobile`,
+             `address`,
+             `contact`,
+             `is_default`,
+             `notes`,
+             `create_date`,
+             `alias`)
+VALUES (
+        #{user_id},
+       #{province_id},
+        #{city_id},
+        #{town_id},
+        #{mobile},
+        #{address},
+        #{contact},
+        #{is_default},
+        #{notes},
+        #{create_date},
+        #{alias});
+  </insert>
+
+    <insert id="insertEntity" parameterType="pojo.TbAddress">
+        <selectKey keyProperty="id" resultType="Long" order="AFTER" >
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO `pinyougoudb`.`tb_address`
+        (
+        `user_id`,
+        `province_id`,
+        `city_id`,
+        `town_id`,
+        `mobile`,
+        `address`,
+        `contact`,
+        `is_default`,
+        `notes`,
+        `create_date`,
+        `alias`)
+        VALUES (
+        #{user_id},
+        #{province_id},
+        #{city_id},
+        #{town_id},
+        #{mobile},
+        #{address},
+        #{contact},
+        #{is_default},
+        #{notes},
+        #{create_date},
+        #{alias});
+    </insert>
+
+    <insert id="insertEntityUUID" parameterType="pojo.TbAddress" useGeneratedKeys="true" keyProperty="id">
+
+        <selectKey keyProperty="notes" resultType="String" order="BEFORE" >
+            SELECT UUID()
+        </selectKey>
+
+        INSERT INTO `pinyougoudb`.`tb_address`
+        (
+        `user_id`,
+        `province_id`,
+        `city_id`,
+        `town_id`,
+        `mobile`,
+        `address`,
+        `contact`,
+        `is_default`,
+        `notes`,
+        `create_date`,
+        `alias`)
+        VALUES (
+        #{user_id},
+        #{province_id},
+        #{city_id},
+        #{town_id},
+        #{mobile},
+        #{address},
+        #{contact},
+        #{is_default},
+        #{notes},
+        #{create_date},
+        #{alias});
+    </insert>
+
+    <insert id="insertEntityUUID2" parameterType="pojo.TbAddress" >
+
+       <!-- <selectKey keyProperty="notes" resultType="String" order="BEFORE" >
+            SELECT UUID()
+        </selectKey>-->
+        <selectKey keyProperty="id" resultType="Long" order="AFTER" >
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO `pinyougoudb`.`tb_address`
+        (
+        `user_id`,
+        `province_id`,
+        `city_id`,
+        `town_id`,
+        `mobile`,
+        `address`,
+        `contact`,
+        `is_default`,
+        `notes`,
+        `create_date`,
+        `alias`)
+        VALUES (
+        #{user_id},
+        #{province_id},
+        #{city_id},
+        #{town_id},
+        #{mobile},
+        #{address},
+        #{contact},
+        #{is_default},
+        #{notes},
+        #{create_date},
+        #{alias});
+    </insert>
+
+    <update id="updateEntityById" parameterType="pojo.TbAddress">
+    UPDATE `pinyougoudb`.`tb_address`
+    SET `user_id` =#{user_id}
+    WHERE `id` = #{id};
+    </update>
+
+    <delete id="delEntityById" parameterType="int">
+DELETE
+FROM `pinyougoudb`.`tb_address`
+WHERE `id` = #{value};
+    </delete>
 </mapper>

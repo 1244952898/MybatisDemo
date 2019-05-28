@@ -4,16 +4,21 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-
+<properties resource="properties/db.properties">
+    <property name="driver" value="com.mysql.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://120.27.213.67:3306/pinyougoudb?characterEncoding=utf-8"/>
+    <property name="username" value="root"/>
+    <property name="password" value="uAiqwVwjJ8-i"/>
+</properties>
 
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://120.27.213.67:3306/pinyougoudb?characterEncoding=utf-8"/>
-                <property name="username" value="root"/>
-                <property name="password" value="uAiqwVwjJ8-i"/>
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
             </dataSource>
         </environment>
     </environments>

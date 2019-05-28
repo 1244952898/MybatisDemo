@@ -5,13 +5,13 @@ import java.util.Date;
 public class TbAddress {
     private Long id;
 
-    private String userId;
+    private String user_id;
 
-    private String provinceId;
+    private String province_id;
 
-    private String cityId;
+    private String city_id;
 
-    private String townId;
+    private String town_id;
 
     private String mobile;
 
@@ -19,13 +19,16 @@ public class TbAddress {
 
     private String contact;
 
-    private String isDefault;
+    private String is_default;
 
     private String notes;
 
-    private Date createDate;
+    private Date create_date;
 
     private String alias;
+
+    public TbAddress() {
+    }
 
     public Long getId() {
         return id;
@@ -36,35 +39,35 @@ public class TbAddress {
     }
 
     public String getUserId() {
-        return userId;
+        return user_id;
     }
 
     public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
+        this.user_id = userId == null ? null : userId.trim();
     }
 
     public String getProvinceId() {
-        return provinceId;
+        return province_id;
     }
 
     public void setProvinceId(String provinceId) {
-        this.provinceId = provinceId == null ? null : provinceId.trim();
+        this.province_id = provinceId == null ? null : provinceId.trim();
     }
 
     public String getCityId() {
-        return cityId;
+        return city_id;
     }
 
     public void setCityId(String cityId) {
-        this.cityId = cityId == null ? null : cityId.trim();
+        this.city_id = cityId == null ? null : cityId.trim();
     }
 
     public String getTownId() {
-        return townId;
+        return town_id;
     }
 
     public void setTownId(String townId) {
-        this.townId = townId == null ? null : townId.trim();
+        this.town_id = townId == null ? null : townId.trim();
     }
 
     public String getMobile() {
@@ -92,11 +95,11 @@ public class TbAddress {
     }
 
     public String getIsDefault() {
-        return isDefault;
+        return is_default;
     }
 
     public void setIsDefault(String isDefault) {
-        this.isDefault = isDefault == null ? null : isDefault.trim();
+        this.is_default = isDefault == null ? null : isDefault.trim();
     }
 
     public String getNotes() {
@@ -108,11 +111,11 @@ public class TbAddress {
     }
 
     public Date getCreateDate() {
-        return createDate;
+        return create_date;
     }
 
     public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+        this.create_date = createDate;
     }
 
     public String getAlias() {
@@ -125,6 +128,6 @@ public class TbAddress {
 
     @Override
     public String toString() {
-        return this.address+"-"+this.cityId;
+        return this.address+"-"+this.town_id;
     }
 }
